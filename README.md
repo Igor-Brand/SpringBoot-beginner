@@ -390,41 +390,84 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 ```
 
 # Models
-Em Spring Boot, os **models** (também chamados de entidades ou domain objects) representam objetos do mundo real que são mapeados para tabelas no banco de dados usando anotações como `@Entity`. Eles contêm os atributos que definem os dados da aplicação, como `id`, `nome`, `preço`, etc.
+Em Spring Boot, os **models** (também chamados de entidades ou domain objects) representam objetos do mundo real que são mapeados para tabelas no banco de dados, utilizando anotações como `@Entity`. Cada atributo da classe representa uma coluna da tabela, como `id`, `nome`, `preço`, etc. Essas classes são essenciais para a camada de persistência da aplicação.
 
-Para evitar repetição de código (como criar manualmente getters, setters, construtores e métodos como `toString`), usamos o **Lombok**, uma biblioteca Java que gera esse código automaticamente. A anotação `@Data` gera todos os métodos essenciais (`getters`, `setters`, `equals`, `hashCode` e `toString`), e outras anotações como `@NoArgsConstructor` e `@AllArgsConstructor` criam os construtores padrão. Isso torna o código mais limpo, reduz o boilerplate e melhora a produtividade no desenvolvimento.
+Para evitar repetição de código (como criação manual de getters, setters, construtores e métodos como `toString`, `equals` e `hashCode`), usamos a biblioteca **Lombok**. Com ela, basta anotar a classe com `@Data` para que todos esses métodos sejam gerados automaticamente. As anotações `@NoArgsConstructor` e `@AllArgsConstructor` criam, respectivamente, um construtor sem parâmetros e um construtor com todos os atributos da classe. Isso torna o código mais limpo, reduz o boilerplate e melhora a produtividade no desenvolvimento.
 
-No nosso projeto tem esses exemplos de uso:
+No nosso projeto, temos os seguintes exemplos de uso:
+
+### 🧾 Model: `Review`
 
 ```java
 package com.pokemonreview.api.models;  
   
   
+import jakarta.persistence.Entity;  
+import jakarta.persistence.GeneratedValue;  
+import jakarta.persistence.GenerationType;  
+import jakarta.persistence.Id;  
+import lombok.AllArgsConstructor;  
 import lombok.Data;  
+import lombok.NoArgsConstructor;  
   
 @Data  
+@AllArgsConstructor  
+@NoArgsConstructor  
+@Entity  
 public class Review {  
+    @Id  
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private int id;  
     private String title;  
     private String content;  
     private int start;  
 }
 ```
+**Explicações:**
+
+- `@Entity`: indica que essa classe é uma entidade JPA, e será mapeada para uma tabela no banco.
+    
+- `@Id`: identifica o campo `id` como chave primária.
+    
+- `@GeneratedValue(strategy = GenerationType.IDENTITY)`: define que o valor do ID será gerado automaticamente pelo banco.
+    
+- `@Data`: gera automaticamente os métodos `get`, `set`, `toString`, `equals`, e `hashCode`.
+    
+- `@NoArgsConstructor` e `@AllArgsConstructor`: criam os construtores padrão e completo, facilitando a criação e manipulação dos objetos.
+
+### 🧾 Model: `Pokemon`
 
 ```java
 
 package com.pokemonreview.api.models;  
   
   
+import jakarta.persistence.Entity;  
+import jakarta.persistence.GeneratedValue;  
+import jakarta.persistence.GenerationType;  
+import jakarta.persistence.Id;  
+import lombok.AllArgsConstructor;  
 import lombok.Data;  
+import lombok.NoArgsConstructor;  
   
 @Data  
+@AllArgsConstructor  
+@NoArgsConstructor  
+@Entity  
 public class Pokemon {  
+    @Id  
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private int id;  
     private String name;  
     private String type;  
   
-  
-  
 }
+```
+**Explicações:**
+
+- Assim como em `Review`, o `Pokemon` é uma entidade mapeada para uma tabela.
+    
+- Os campos `id`, `name` e `type` serão colunas da tabela `pokemon`.
+    
+- Todas as anotações de Lombok (`@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`) são usadas da mesma forma, garantindo a geração automática dos métodos e construtores
 ```
