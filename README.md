@@ -2,7 +2,8 @@
 Um repositório que explica passos iniciais em spring boot
 
 # Spring Core
-![[Captura de tela de 2025-04-09 10-36-48.png]]
+![Captura de tela de 2025-04-09 10-36-48](https://github.com/user-attachments/assets/a8d524d7-9c29-4925-a58d-c9a1feba13f0)
+
 ---
 
 ## 🔁 1. **Spring Beans**
@@ -122,8 +123,8 @@ O módulo de **Spring Data Access** fornece formas de se conectar com **bancos d
 - **Transações**
     
 - **Mensageria**
+![Captura de tela de 2025-04-09 10-47-13](https://github.com/user-attachments/assets/f3b632f9-64bb-4ea0-a56a-a7df0279681c)
 
-![[Captura de tela de 2025-04-09 10-47-13.png]]
 
 ## 1. 🔌 **JDBC (Java Database Connectivity)**
 
@@ -267,7 +268,9 @@ public void receberMensagem(String conteudo) {
 | JMS        | Mensageria assíncrona                | `JmsTemplate`, `@JmsListener` | `spring-boot-starter-activemq` |
 
 # Repository Pattern
-![[Captura de tela de 2025-04-09 11-04-14.png]]
+![Captura de tela de 2025-04-09 11-04-14](https://github.com/user-attachments/assets/6c008d24-3fbc-44cb-9a69-1ad707554e1f)
+
+
 ## 📦 O que é o **Repository Pattern**?
 
 O **Repository Pattern** é um padrão de projeto que isola a **lógica de acesso a dados** do restante da aplicação. Ele é composto por uma estrutura em camadas:
