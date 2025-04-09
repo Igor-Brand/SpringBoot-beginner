@@ -388,3 +388,43 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
      Frontend                  Regras, validações              JPA, Hibernate, SQL
 
 ```
+
+# Models
+Em Spring Boot, os **models** (também chamados de entidades ou domain objects) representam objetos do mundo real que são mapeados para tabelas no banco de dados usando anotações como `@Entity`. Eles contêm os atributos que definem os dados da aplicação, como `id`, `nome`, `preço`, etc.
+
+Para evitar repetição de código (como criar manualmente getters, setters, construtores e métodos como `toString`), usamos o **Lombok**, uma biblioteca Java que gera esse código automaticamente. A anotação `@Data` gera todos os métodos essenciais (`getters`, `setters`, `equals`, `hashCode` e `toString`), e outras anotações como `@NoArgsConstructor` e `@AllArgsConstructor` criam os construtores padrão. Isso torna o código mais limpo, reduz o boilerplate e melhora a produtividade no desenvolvimento.
+
+No nosso projeto tem esses exemplos de uso:
+
+```java
+package com.pokemonreview.api.models;  
+  
+  
+import lombok.Data;  
+  
+@Data  
+public class Review {  
+    private int id;  
+    private String title;  
+    private String content;  
+    private int start;  
+}
+```
+
+```java
+
+package com.pokemonreview.api.models;  
+  
+  
+import lombok.Data;  
+  
+@Data  
+public class Pokemon {  
+    private int id;  
+    private String name;  
+    private String type;  
+  
+  
+  
+}
+```
