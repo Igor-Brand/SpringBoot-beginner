@@ -471,6 +471,7 @@ public class Pokemon {
     
 - Todas as anotações de Lombok (`@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`) são usadas da mesma forma, garantindo a geração automática dos métodos e construtores
 ```
+
 # Controllers
 
 
@@ -513,3 +514,4 @@ public ResponseEntity<List<Pokemon>> getPokemons() {
     - É criada uma lista de objetos `Pokemon` **manualmente** (mock).
         
     - Essa lista é retornada com o status 200 (OK) usando `ResponseEntity.ok(...)`.
+```
