@@ -473,12 +473,12 @@ public class Pokemon {
 ```
 # Controllers
 
+
 ### 🎮 Papel do Controller
 
-O `Controller` em Spring Boot é responsável por **receber as requisições HTTP** da aplicação (por exemplo, do navegador, frontend ou de outro sistema) e **retornar respostas**. Ele funciona como a **porta de entrada da API**.
+O Controller em Spring Boot é responsável por receber as requisições HTTP da aplicação (por exemplo, do navegador, frontend ou de outro sistema) e retornar respostas. Ele funciona como a porta de entrada da API.
 
-No padrão MVC ou Repository Pattern, o `Controller` **não deve conter lógica de negócio complexa**, apenas **coordenar a chamada das outras camadas** (como `Service` e `Repository`) e devolver os resultados ao cliente.
-
+No padrão MVC ou Repository Pattern, o Controller não deve conter lógica de negócio complexa, apenas coordenar a chamada das outras camadas (como Service e Repository) e devolver os resultados ao cliente.
 ---
 
 ### 🔍 Analisando o código enviado
