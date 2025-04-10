@@ -471,3 +471,45 @@ public class Pokemon {
     
 - Todas as anotações de Lombok (`@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`) são usadas da mesma forma, garantindo a geração automática dos métodos e construtores
 ```
+# Controllers
+
+### 🎮 Papel do Controller
+
+O `Controller` em Spring Boot é responsável por **receber as requisições HTTP** da aplicação (por exemplo, do navegador, frontend ou de outro sistema) e **retornar respostas**. Ele funciona como a **porta de entrada da API**.
+
+No padrão MVC ou Repository Pattern, o `Controller` **não deve conter lógica de negócio complexa**, apenas **coordenar a chamada das outras camadas** (como `Service` e `Repository`) e devolver os resultados ao cliente.
+
+---
+
+### 🔍 Analisando o código enviado
+
+`@RestController @RequestMapping("/api/") public class PokemonController {`
+
+- `@RestController`: define que esta classe é um controller REST que vai responder com JSON.
+    
+- `@RequestMapping("/api/")`: define o caminho base da rota da API.
+    
+
+---
+
+```java
+@GetMapping("pokemon")
+public ResponseEntity<List<Pokemon>> getPokemons() {
+    List<Pokemon> pokemons = new ArrayList<>();
+    pokemons.add(new Pokemon(1, "Squirtle", "Water"));
+    pokemons.add(new Pokemon(2, "Pikachu", "Electric"));
+    pokemons.add(new Pokemon(3, "Charmander", "Fire"));
+    return ResponseEntity.ok(pokemons);
+}
+
+```
+
+
+
+- `@GetMapping("pokemon")`: mapeia requisições HTTP GET feitas para `/api/pokemon`.
+    
+- Dentro do método:
+    
+    - É criada uma lista de objetos `Pokemon` **manualmente** (mock).
+        
+    - Essa lista é retornada com o status 200 (OK) usando `ResponseEntity.ok(...)`.
