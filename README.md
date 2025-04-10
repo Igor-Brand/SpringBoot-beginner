@@ -482,14 +482,14 @@ No padrão MVC ou Repository Pattern, o `Controller` **não deve conter lógica 
 
 ### 🔍 Analisando o código enviado
 
-`@RestController @RequestMapping("/api/") public class PokemonController {`
-
-- `@RestController`: define que esta classe é um controller REST que vai responder com JSON.
-    
-- `@RequestMapping("/api/")`: define o caminho base da rota da API.
-    
-
+```java
+@RestController
+@RequestMapping("/api/")
+public class PokemonController {
 ---
+@RestController: define que esta classe é um controller REST que vai responder com JSON.
+
+@RequestMapping("/api/"): define o caminho base da rota da API.
 
 ```java
 @GetMapping("pokemon")
