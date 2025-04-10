@@ -472,14 +472,12 @@ public class Pokemon {
 - Todas as anotações de Lombok (`@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`) são usadas da mesma forma, garantindo a geração automática dos métodos e construtores
 ```
 
-# Controllers
-
-
 ### 🎮 Papel do Controller
 
-O Controller em Spring Boot é responsável por receber as requisições HTTP da aplicação (por exemplo, do navegador, frontend ou de outro sistema) e retornar respostas. Ele funciona como a porta de entrada da API.
+O `Controller` em Spring Boot é responsável por **receber as requisições HTTP** da aplicação (por exemplo, do navegador, frontend ou de outro sistema) e **retornar respostas**. Ele funciona como a **porta de entrada da API**.
 
-No padrão MVC ou Repository Pattern, o Controller não deve conter lógica de negócio complexa, apenas coordenar a chamada das outras camadas (como Service e Repository) e devolver os resultados ao cliente.
+No padrão MVC ou Repository Pattern, o `Controller` **não deve conter lógica de negócio complexa**, apenas **coordenar a chamada das outras camadas** (como `Service` e `Repository`) e devolver os resultados ao cliente.
+
 ---
 
 ### 🔍 Analisando o código enviado
@@ -514,4 +512,3 @@ public ResponseEntity<List<Pokemon>> getPokemons() {
     - É criada uma lista de objetos `Pokemon` **manualmente** (mock).
         
     - Essa lista é retornada com o status 200 (OK) usando `ResponseEntity.ok(...)`.
-```
