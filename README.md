@@ -506,6 +506,51 @@ public ResponseEntity<List<Pokemon>> getPokemons() {
 
 
 - `@GetMapping("pokemon")`: mapeia requisições HTTP GET feitas para `/api/pokemon`.
+
+### Pacote `repository` no Repository Pattern
+
+No padrão Repository (Repository Pattern), a aplicação é dividida em **camadas com responsabilidades claras**. Uma dessas camadas é a **camada de acesso a dados**, responsável por lidar com a comunicação com o banco de dados. Essa camada normalmente é colocada dentro de um pacote chamado `repository`.
+
+**Motivo do nome:**  
+Colocar essa interface dentro do pacote `repository` ajuda a **organizar** e **separar as responsabilidades** da aplicação. Assim, sabemos que tudo ali tem a ver com a persistência de dados (salvar, buscar, deletar, atualizar no banco).
+
+---
+
+### 🔍 Explicando o código
+
+```java
+package com.pokemonreview.api.repository;
+
+import com.pokemonreview.api.models.Pokemon;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PokemonRepository extends JpaRepository<Pokemon, Integer> {
+}
+
+```
+
+# Repository
+
+#### 👉 O que está acontecendo aqui:
+
+- `PokemonRepository` é uma **interface**, não uma classe. Isso é possível porque o Spring Data JPA gera automaticamente a implementação dessa interface para você.
+    
+- `extends JpaRepository<Pokemon, Integer>`:
+    
+    - Diz que essa interface vai **gerenciar a entidade `Pokemon`**.
+        
+    - O segundo parâmetro `Integer` é o **tipo do ID** da entidade (no caso, o `id` do `Pokemon`).
+        
+
+Com isso, o Spring já te dá de forma automática métodos prontos como:
+
+- `findAll()` — listar todos os Pokémons
+    
+- `findById(id)` — buscar por ID
+    
+- `save(pokemon)` — salvar ou atualizar
+    
+- `deleteById(id)` — deletar por ID
     
 - Dentro do método:
     
