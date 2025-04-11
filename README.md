@@ -507,6 +507,8 @@ public ResponseEntity<List<Pokemon>> getPokemons() {
 
 - `@GetMapping("pokemon")`: mapeia requisições HTTP GET feitas para `/api/pokemon`.
 
+# Repository
+
 ### Pacote `repository` no Repository Pattern
 
 No padrão Repository (Repository Pattern), a aplicação é dividida em **camadas com responsabilidades claras**. Uma dessas camadas é a **camada de acesso a dados**, responsável por lidar com a comunicação com o banco de dados. Essa camada normalmente é colocada dentro de um pacote chamado `repository`.
@@ -529,7 +531,6 @@ public interface PokemonRepository extends JpaRepository<Pokemon, Integer> {
 
 ```
 
-### Repository
 
 #### 👉 O que está acontecendo aqui:
 
