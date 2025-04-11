@@ -471,7 +471,7 @@ public class Pokemon {
     
 - Todas as anotações de Lombok (`@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`) são usadas da mesma forma, garantindo a geração automática dos métodos e construtores
 ```
-
+### Controller
 ### 🎮 Papel do Controller
 
 O `Controller` em Spring Boot é responsável por **receber as requisições HTTP** da aplicação (por exemplo, do navegador, frontend ou de outro sistema) e **retornar respostas**. Ele funciona como a **porta de entrada da API**.
@@ -529,7 +529,7 @@ public interface PokemonRepository extends JpaRepository<Pokemon, Integer> {
 
 ```
 
-# Repository
+### Repository
 
 #### 👉 O que está acontecendo aqui:
 
