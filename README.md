@@ -532,6 +532,7 @@ public interface PokemonRepository extends JpaRepository<Pokemon, Integer> {
 ```
 
 
+
 #### 👉 O que está acontecendo aqui:
 
 - `PokemonRepository` é uma **interface**, não uma classe. Isso é possível porque o Spring Data JPA gera automaticamente a implementação dessa interface para você.
@@ -559,13 +560,14 @@ Com isso, o Spring já te dá de forma automática métodos prontos como:
         
     - Essa lista é retornada com o status 200 (OK) usando `ResponseEntity.ok(...)`.
 
+
 📦 1. PokemonService – Interface da camada de serviço
-java
-Copiar
-Editar
+
+```java
 public interface PokemonService {
     PokemonDto createPokemon(PokemonDto pokemonDto);
 }
+```
 ✅ Por que criar?
 É uma interface (contrato) dizendo: "Eu sei criar um Pokémon."
 
@@ -574,13 +576,14 @@ Permite trocar a implementação real (ex: PokemonServiceImpl) sem afetar o rest
 Ajuda em testes e mantém o código flexível e desacoplado.
 
 ⚙️ 2. PokemonServiceImpl – Implementação da lógica de negócio
-java
-Copiar
-Editar
+
+```java
 @Service
 public class PokemonServiceImpl implements PokemonService {
     ...
 }
+```
+
 ✅ Por que criar?
 Essa é a implementação concreta da interface.
 
@@ -598,15 +601,15 @@ Constrói um novo DTO de resposta com o Pokémon salvo (já com o ID gerado).
 Retorna esse DTO.
 
 🚚 3. PokemonDto – Data Transfer Object
-java
-Copiar
-Editar
+
+```java
 @Data
 public class PokemonDto {
     private int id;
     private String name;
     private String type;
 }
+```
 ✅ Por que criar?
 Serve para trocar dados entre o frontend e a API.
 
@@ -619,10 +622,9 @@ Imagine um fluxo de criação de Pokémon:
 
 O frontend envia um JSON:
 
-json
-Copiar
-Editar
+```json
 { "name": "Bulbasaur", "type": "Grass" }
+```
 O Controller chama pokemonService.createPokemon() e passa o DTO.
 
 O Service converte o DTO → Entidade → salva no banco → converte de volta para DTO.
