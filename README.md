@@ -558,3 +558,73 @@ Com isso, o Spring já te dá de forma automática métodos prontos como:
     - É criada uma lista de objetos `Pokemon` **manualmente** (mock).
         
     - Essa lista é retornada com o status 200 (OK) usando `ResponseEntity.ok(...)`.
+
+📦 1. PokemonService – Interface da camada de serviço
+java
+Copiar
+Editar
+public interface PokemonService {
+    PokemonDto createPokemon(PokemonDto pokemonDto);
+}
+✅ Por que criar?
+É uma interface (contrato) dizendo: "Eu sei criar um Pokémon."
+
+Permite trocar a implementação real (ex: PokemonServiceImpl) sem afetar o resto da aplicação.
+
+Ajuda em testes e mantém o código flexível e desacoplado.
+
+⚙️ 2. PokemonServiceImpl – Implementação da lógica de negócio
+java
+Copiar
+Editar
+@Service
+public class PokemonServiceImpl implements PokemonService {
+    ...
+}
+✅ Por que criar?
+Essa é a implementação concreta da interface.
+
+Aqui é onde a mágica acontece: os dados do DTO são convertidos para entidade (Pokemon), salvos no banco, e depois convertidos de volta para DTO.
+
+✨ O que esse código faz:
+Recebe o DTO com os dados do Pokémon (name e type).
+
+Cria um objeto Pokemon com esses dados.
+
+Usa o pokemonRepository.save() para salvar no banco.
+
+Constrói um novo DTO de resposta com o Pokémon salvo (já com o ID gerado).
+
+Retorna esse DTO.
+
+🚚 3. PokemonDto – Data Transfer Object
+java
+Copiar
+Editar
+@Data
+public class PokemonDto {
+    private int id;
+    private String name;
+    private String type;
+}
+✅ Por que criar?
+Serve para trocar dados entre o frontend e a API.
+
+Evita expor diretamente a entidade do banco (Pokemon), o que pode conter informações sensíveis.
+
+Permite criar versões diferentes dos dados para diferentes contextos (ex: listagem, criação, detalhes, etc).
+
+🔁 Como tudo se conecta
+Imagine um fluxo de criação de Pokémon:
+
+O frontend envia um JSON:
+
+json
+Copiar
+Editar
+{ "name": "Bulbasaur", "type": "Grass" }
+O Controller chama pokemonService.createPokemon() e passa o DTO.
+
+O Service converte o DTO → Entidade → salva no banco → converte de volta para DTO.
+
+O Controller devolve o DTO como resposta com status 201.
