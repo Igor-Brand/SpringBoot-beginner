@@ -1,5 +1,114 @@
-# SpringBoot-beginner
-Um repositório que explica passos iniciais em spring boot
+🌱 Spring Boot para Iniciantes: Navegação Rápida
+📚 Sumário Estruturado
+Spring Core
+
+Spring Beans
+
+Spring Core (IoC/DI)
+
+Spring Context
+
+SpEL
+
+Data Access
+
+JDBC
+
+ORM
+
+Transações
+
+JMS
+
+Repository Pattern
+
+Controller
+
+Service
+
+Repository
+
+Models & DTOs
+
+Models com Lombok
+
+DTOs
+
+🧩 Seções Detalhadas
+🔄 Spring Core {#spring-core}
+Spring Beans {#spring-beans}
+Objetos gerenciados pelo Spring.
+Exemplo: @Component public class MeuServico { ... }
+Voltar ao sumário
+
+Spring Core (IoC/DI) {#spring-core-ioc}
+Inversão de Controle e injeção de dependências.
+Voltar ao sumário
+
+Spring Context {#spring-context}
+ApplicationContext e gestão de recursos.
+Voltar ao sumário
+
+SpEL {#spel}
+Linguagem de expressão para configurações dinâmicas.
+Exemplo: @Value("#{systemProperties['user.home']}")
+Voltar ao sumário
+
+📂 Data Access {#data-access}
+JDBC {#jdbc}
+Conexão direta com bancos usando JdbcTemplate.
+Voltar ao sumário
+
+ORM {#orm}
+Mapeamento objeto-relacional com JPA/Hibernate.
+Exemplo: @Entity public class Produto { ... }
+Voltar ao sumário
+
+Transações {#transacoes}
+Atomicidade com @Transactional.
+Voltar ao sumário
+
+JMS {#jms}
+Mensageria assíncrona com JmsTemplate.
+Voltar ao sumário
+
+🏗️ Repository Pattern {#repository-pattern}
+Controller {#controller}
+Recebe requisições HTTP e retorna respostas.
+Exemplo: @GetMapping("/pokemon")
+Voltar ao sumário
+
+Service {#service}
+Contém a lógica de negócio e validações.
+Exemplo: public Produto salvarProduto(Produto produto) { ... }
+Voltar ao sumário
+
+Repository {#repository}
+Acesso ao banco de dados via JpaRepository.
+Exemplo: public interface ProdutoRepository extends JpaRepository<...>
+Voltar ao sumário
+
+🧾 Models & DTOs {#models-dtos}
+Models com Lombok {#models-lombok}
+Entidades com redução de boilerplate.
+Exemplo: @Data @Entity public class Pokemon { ... }
+Voltar ao sumário
+
+DTOs {#dtos}
+Objetos para transferência segura de dados.
+Exemplo: public class PokemonDto { id, name, type }
+Voltar ao sumário
+
+🔄 Fluxo de Exemplo
+Frontend envia JSON → Controller recebe.
+
+Service processa e chama Repository.
+
+Dados salvos no banco via ORM.
+
+Resposta retorna como DTO.
+
+Voltar ao topo
 
 # Spring Core
 ![Captura de tela de 2025-04-09 10-36-48](https://github.com/user-attachments/assets/a8d524d7-9c29-4925-a58d-c9a1feba13f0)
