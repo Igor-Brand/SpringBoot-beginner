@@ -1,72 +1,105 @@
 # SpringBoot-beginner
 
-🌱 1. Spring Core
-Conceito central do Spring Framework
+Este guia apresenta os fundamentos do Spring Boot, desde a criação e injeção de beans até o acesso a dados e arquitetura com Repository Pattern.
 
-Gerencia objetos com IoC (Inversão de Controle) e DI (Injeção de Dependência)
+---
 
-Utiliza anotações como @Component, @Service, @Repository
+## 🌱 1. Spring Core
 
-Base para todo o ecossistema Spring
+- Conceito central do Spring Framework  
+- Gerencia objetos com **IoC (Inversão de Controle)** e **DI (Injeção de Dependência)**  
+- Utiliza anotações como `@Component`, `@Service`, `@Repository`  
+- Base para todo o ecossistema Spring  
 
-🧠 2. Spring Context
-ApplicationContext: coração da aplicação Spring
+---
 
-Gerencia beans, recursos, mensagens e eventos
+## 🧠 2. Spring Context
 
-Inicializado automaticamente em projetos Spring Boot
+- `ApplicationContext`: coração da aplicação Spring  
+- Gerencia beans, recursos, mensagens e eventos  
+- Inicializado automaticamente em projetos Spring Boot  
 
-🧙‍♂️ 3. SpEL - Spring Expression Language
-Linguagem para expressões dinâmicas em anotações ou configurações
+---
 
-Útil para acessar propriedades do sistema, cálculos, condições
+## 🧙‍♂️ 3. SpEL - Spring Expression Language
 
-🗃️ 4. Spring Data Access
+- Linguagem para expressões dinâmicas em anotações ou configurações  
+- Útil para acessar propriedades do sistema, cálculos, condições  
+
+---
+
+## 🗃️ 4. Spring Data Access
+
 Fornece suporte robusto para manipulação de dados:
 
-🔌 4.1 JDBC
-Uso de SQL tradicional via JdbcTemplate
+### 🔌 4.1 JDBC
 
-🧱 4.2 ORM (JPA + Hibernate)
-Mapeia classes Java com tabelas no banco
+- Uso de SQL tradicional via `JdbcTemplate`  
 
-Facilita operações com JpaRepository
+### 🧱 4.2 ORM (JPA + Hibernate)
 
-🔄 4.3 O/X Mapping (OXM)
-Serialização de objetos em XML com JAXB
+- Mapeia classes Java com tabelas no banco  
+- Facilita operações com `JpaRepository`  
 
-💼 4.4 Transações
-Garantem atomicidade usando @Transactional
+### 🔄 4.3 O/X Mapping (OXM)
 
-📬 4.5 JMS - Java Messaging Service
-Comunicação assíncrona com filas de mensagens
+- Serialização de objetos em XML com JAXB  
 
-Uso de JmsTemplate e @JmsListener
+### 💼 4.4 Transações
 
-🧩 5. Repository Pattern
+- Garantem atomicidade usando `@Transactional`  
+
+### 📬 4.5 JMS - Java Messaging Service
+
+- Comunicação assíncrona com filas de mensagens  
+- Uso de `JmsTemplate` e `@JmsListener`  
+
+---
+
+## 🧩 5. Repository Pattern
+
 Organiza a aplicação em três camadas principais:
 
-✅ Controller
-Recebe requisições HTTP
+### ✅ Controller
 
-Chama o service
+- Recebe requisições HTTP  
+- Chama o service  
 
-⚙️ Service
-Contém a lógica de negócio
+### ⚙️ Service
 
-Regras e validações
+- Contém a **lógica de negócio**  
+- Regras e validações  
 
-🗄️ Repository
-Interface com o banco de dados
+### 🗄️ Repository
 
-Usa JpaRepository com métodos automáticos
+- Interface com o banco de dados  
+- Usa `JpaRepository` com métodos automáticos  
 
-🧬 6. Models (Entidades)
-Classes Java anotadas com @Entity
+---
 
-Representam tabelas do banco
+## 🧬 6. Models (Entidades)
 
-Base do mapeamento ORM (JPA/Hibernate)
+- Classes Java anotadas com `@Entity`  
+- Representam tabelas do banco  
+- Base do mapeamento ORM (JPA/Hibernate)  
+
+---
+
+## 🔄 Fluxo Resumido da Aplicação Spring Boot
+
+```text
+@SpringBootApplication
+        ↓
+ApplicationContext inicia
+        ↓
+Beans são escaneados e instanciados
+        ↓
+Services recebem chamadas dos Controllers
+        ↓
+Services acessam dados via Repository
+        ↓
+Repository acessa o banco (JPA, JDBC, etc.)
+
 # Spring Core
 ![Captura de tela de 2025-04-09 10-36-48](https://github.com/user-attachments/assets/a8d524d7-9c29-4925-a58d-c9a1feba13f0)
 
